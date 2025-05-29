@@ -1,0 +1,37 @@
+# -*- coding: utf-8 -*-
+import sys
+
+def dijkstra(graph, src):
+    
+    lenght = len(graph) #comprimento do grafo = linhas
+    dist = [sys.maxsize] * lenght
+    dist[src] = 0
+    sptSet = [False] * lenght
+    
+    for cout in range(lenght):
+        min = sys.maxsize
+        for v in range(lenght):
+            if sptSet[v] == False and dist[v] < min:
+                u = v
+    sptSet[u] = True
+    for v in range(lenght):
+        if sptSet[v] == False and graph[u][v] > 0 and dist[v] > dist[u] + graph[u][v]:
+            dist[v] = dist[u] + graph[u][v]
+    
+    return dist
+
+def lerGraph():
+    graph = []
+    lenght = int(input())
+    for i in range(length):
+        row = list(map(int, input())
+        graph.append(row)
+    return graph
+    
+
+graph = lerGraph()
+
+src = int(input())
+dist = dijkstra(graph, src)
+
+print(dist)
